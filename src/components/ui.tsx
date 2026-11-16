@@ -1,0 +1,8 @@
+import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { motion } from 'framer-motion'
+
+export function Container({ children }: { children: ReactNode }) { return <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">{children}</div> }
+export function Badge({ children }: { children: ReactNode }) { return <span className="inline-flex items-center gap-2 rounded-full border border-violet-400/25 bg-violet-400/10 px-3 py-1.5 text-xs font-semibold text-violet-700 dark:text-violet-300">{children}</span> }
+export function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) { return <div className="mb-10 max-w-2xl"><p className="mb-3 text-sm font-bold uppercase tracking-[.18em] text-violet-600 dark:text-violet-400">{eyebrow}</p><h2 className="font-display text-3xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-4xl">{title}</h2>{text && <p className="mt-4 leading-7 text-slate-600 dark:text-slate-400">{text}</p>}</div> }
+export function Card({ children, className = '' }: { children: ReactNode; className?: string }) { return <motion.div whileHover={{ y: -4 }} className={`rounded-2xl border border-slate-200/75 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/[.045] ${className}`}>{children}</motion.div> }
+export function Button({ children, className = '', ...props }: ButtonHTMLAttributes<HTMLButtonElement>) { return <button className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold transition focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 dark:focus:ring-offset-slate-950 ${className}`} {...props}>{children}</button> }
